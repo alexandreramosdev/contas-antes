@@ -1,36 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🛒 Conta Antes
 
-## Getting Started
+![Project Status](https://img.shields.io/badge/status-em_desenvolvimento-yellow)
+![License](https://img.shields.io/badge/license-MIT-blue)
 
-First, run the development server:
+> Uma aplicação web mobile-first para planejamento e controle financeiro de compras de supermercado em tempo real.
+
+## 💡 Sobre o Projeto
+
+O **Conta Antes** nasceu da necessidade de evitar surpresas na hora de passar no caixa. Diferente de listas de tarefas comuns, este web app atua como uma calculadora de carrinho inteligente.
+
+O usuário pode criar sua lista em casa e, durante as compras, inserir preços e quantidades. O app calcula o total em tempo real, permitindo um controle orçamentário preciso antes mesmo de finalizar a compra.
+
+### ✨ Funcionalidades Principais
+
+- [x] **Lista de Planejamento:** Adicionar itens que você pretende comprar.
+- [x] **Modo Carrinho:** Check-in de itens com inserção de **Preço** e **Quantidade**.
+- [x] **Cálculo em Tempo Real:** O valor total da compra é atualizado instantaneamente a cada item marcado.
+- [x] **Histórico Inteligente:** O app salva o último preço pago em um produto (via LocalStorage) e sugere esse valor na próxima compra.
+- [x] **Design Dark Moderno:** Interface focada em usabilidade com pouca luz e economia de bateria.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+Este projeto faz parte do meu portfólio e foi construído com foco em performance e código limpo:
+
+- **[Next.js 14](https://nextjs.org/)** (App Router) - Framework React para produção.
+- **[TypeScript](https://www.typescriptlang.org/)** - Para tipagem estática e robustez do código.
+- **[Tailwind CSS](https://tailwindcss.com/)** - Para estilização ágil e responsiva.
+- **[Lucide React](https://lucide.dev/)** - Ícones leves e vetoriais.
+- **LocalStorage API** - Persistência de dados no navegador (Client-side).
+
+---
+
+## 🎨 UX/UI Design
+
+O projeto segue uma estética **"Dark & Clean"** (inspirada em interfaces modernas como Linear/Vercel):
+
+1.  **Fundo Zinc-950:** Reduz o cansaço visual e economiza bateria em telas OLED.
+2.  **Acentos Emerald-500:** A cor verde é usada exclusivamente para indicar dinheiro e ações de conclusão, guiando o olhar do usuário.
+3.  **Mobile First:** Interface otimizada para uso com uma mão (polegar), ideal para o contexto de uso (segurando o celular enquanto empurra o carrinho).
+
+---
+
+## 🚀 Como rodar o projeto
+
+### Pré-requisitos
+
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
+
+### Passo a passo
+
+1. Clone o repositório:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [https://github.com/alexandreramosdev/contas-antes.git](https://github.com/alexandreramosdev/contas-antes.git)
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre na pasta do projeto:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Bash
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+cd contas-antes
+Instale as dependências:
 
-## Learn More
+```Bash
 
-To learn more about Next.js, take a look at the following resources:
+npm install
+# ou
+yarn install
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Rode o servidor de desenvolvimento:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```Bash
 
-## Deploy on Vercel
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Abra http://localhost:3000 no seu navegador para ver o resultado.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🔜 Roadmap (Futuro)
+
+[ ] Implementar separação por Categorias (Hortifruti, Limpeza, etc).
+
+[ ] Adicionar opção de limpar apenas os itens marcados ("Nova Compra").
+
+[ ] Sincronização em nuvem (Backend).
+
+## 📝 Licença
+
+Este projeto está sob a licença MIT.
+
+Desenvolvido por Alexandre Ramos
