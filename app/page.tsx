@@ -1,5 +1,9 @@
-import Image from "next/image";
+import Header from "@/components/Header";
 
 export default function Home() {
-  return <h1>Conta Antes</h1>;
+  return (
+    <div className="p-8 relative">
+      <Header />
+    </div>
+  );
 }
