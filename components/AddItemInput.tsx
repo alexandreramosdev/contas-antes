@@ -1,6 +1,17 @@
 import { Plus } from "lucide-react";
+import { ChangeEvent, MouseEvent } from "react";
 
-export const AddItemInput = () => {
+interface AddItemInputProps {
+  value: string;
+  handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  handleButtonClick: (e: MouseEvent<HTMLButtonElement>) => void;
+}
+
+export const AddItemInput = ({
+  value,
+  handleInputChange,
+  handleButtonClick,
+}: AddItemInputProps) => {
   return (
     <div className="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur-md border-0 p-4">
       <form
@@ -13,8 +24,13 @@ export const AddItemInput = () => {
           name=""
           id=""
           placeholder="Adicionar item..."
+          value={value}
+          onChange={(e) => handleInputChange(e)}
         />
-        <button className="absolute right-6 top-6 bg-zinc-800 hover:bg-emerald-600 hover:text-white text-zinc-400 p-1.5 rounded-full transition-colors">
+        <button
+          className="absolute right-6 top-6 bg-zinc-800 hover:bg-emerald-600 hover:text-white text-zinc-400 p-1.5 rounded-full transition-colors"
+          onClick={(e) => handleButtonClick(e)}
+        >
           <Plus />
         </button>
       </form>
