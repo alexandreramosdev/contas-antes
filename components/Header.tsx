@@ -1,4 +1,4 @@
-export default function Header() {
+export const Header = () => {
   return (
     <header className="sticky top-0 z-20 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800 pt-8 pb-4 px-4">
       <div className="bg-zinc-900 rounded-2xl p-4">
@@ -11,4 +11,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
+};

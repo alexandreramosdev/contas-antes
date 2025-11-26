@@ -1,6 +1,6 @@
 import { Plus } from "lucide-react";
 
-export default function AddItemInput() {
+export const AddItemInput = () => {
   return (
     <div className="sticky top-0 z-10 bg-zinc-950/80 backdrop-blur-md border-0 p-4">
       <form
@@ -20,4 +20,4 @@ export default function AddItemInput() {
       </form>
     </div>
   );
-}
+};

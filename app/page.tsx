@@ -1,5 +1,5 @@
-import AddItemInput from "@/components/AddItemInput";
-import Header from "@/components/Header";
+import { AddItemInput } from "@/components/AddItemInput";
+import { Header } from "@/components/Header";
 
 export default function Home() {
   return (
