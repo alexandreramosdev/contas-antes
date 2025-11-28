@@ -10,20 +10,24 @@ import { Checkbox } from "@/src/components/ui/checkbox";
 
 export default function Home() {
   const [item, setItem] = useState<string>("");
-  const [items, setItems] = useState<Item[]>([]);
-
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-    setItem(e.target.value.trim());
-  };
+  const [itens, setItens] = useState<Item[]>([]);
 
   const generateId = () => {
     return Math.floor(Math.random() * 1000);
   };
 
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+
+    setItem(e.target.value.trim());
+  };
+
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setItems([...items, { id: generateId(), name: item }]);
+
+    if (!item) return;
+
+    setItens([...itens, { id: generateId(), name: item }]);
     setItem("");
   };
 
@@ -37,9 +41,9 @@ export default function Home() {
       />
       <div className="p-4">
         {/* <h2 className="text-zinc-100 text-xl mb-4">Itens</h2> */}
-        {items.map(({ id, name }) => (
+        {itens.map(({ id, name }) => (
           <Card key={id} className="my-2 py-4 border-zinc-800 bg-zinc-900">
-            <CardContent className="flex flex-row items-center flex-between gap-2 ">
+            <CardContent className="flex flex-row itens-center flex-between gap-2 ">
               <Checkbox className="rounded-full w-6 h-6" />
               <div className="w-full pl-4 text-zinc-100">{name}</div>
               <Badge variant="outline" className="text-zinc-500">
