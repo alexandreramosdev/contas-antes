@@ -1,6 +1,6 @@
 "use client";
 
-import { ChangeEvent, MouseEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { AddItemInput } from "@/src/components/AddItemInput";
 import { Header } from "@/src/components/Header";
 import { Item } from "@/src/types";
@@ -21,7 +21,7 @@ export default function Home() {
     return Math.floor(Math.random() * 1000);
   };
 
-  const handleButtonClick = (e: MouseEvent<HTMLButtonElement>) => {
+  const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setItems([...items, { id: generateId(), name: item }]);
     setItem("");
@@ -33,7 +33,7 @@ export default function Home() {
       <AddItemInput
         value={item}
         handleInputChange={handleInputChange}
-        handleButtonClick={handleButtonClick}
+        handleFormSubmit={handleFormSubmit}
       />
       <div className="p-4">
         {/* <h2 className="text-zinc-100 text-xl mb-4">Itens</h2> */}

@@ -1,13 +1,12 @@
-import { ChangeEvent, MouseEvent } from "react";
-interface AddItemInputProps {
+import { ChangeEvent, FormEvent } from "react";
+
+export interface AddItemInputProps {
   value: string;
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
-  handleButtonClick: (e: MouseEvent<HTMLButtonElement>) => void;
+  handleFormSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-interface Item {
+export interface Item {
   id: number;
   name: string;
 }
-
-export type { AddItemInputProps, Item };
