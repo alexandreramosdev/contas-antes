@@ -6,7 +6,7 @@ export interface AddItemInputProps {
   handleFormSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }
 
-export interface Item {
+export interface ItemProps {
   id: number;
   name: string;
 }
