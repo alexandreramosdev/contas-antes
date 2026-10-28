@@ -51,34 +51,26 @@ Certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
 
 ### Passo a passo
 
-1. Clone o repositório:
+1. Clone o repositório e entre na pasta:
 
 ```bash
-git clone [https://github.com/alexandreramosdev/contas-antes.git](https://github.com/alexandreramosdev/contas-antes.git)
-```
-
-Entre na pasta do projeto:
-
-Bash
-
+git clone https://github.com/alexandreramosdev/contas-antes.git
 cd contas-antes
-Instale as dependências:
-
-```Bash
-
-npm install
-# ou
-yarn install
 ```
 
-Rode o servidor de desenvolvimento:
+2. Instale as dependências:
 
-```Bash
+```bash
+npm install
+```
 
+3. Inicie o servidor de desenvolvimento:
+
+```bash
 npm run dev
 ```
 
-Abra http://localhost:3000 no seu navegador para ver o resultado.
+Acesse http://localhost:3000.
 
 ## 🔜 Roadmap (Futuro)
 
