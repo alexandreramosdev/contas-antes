@@ -2,8 +2,11 @@
 
 ![Project Status](https://img.shields.io/badge/status-MVP-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-blue)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Falexandreramosdev%2Fcontas-antes)
 
 > Uma aplicação web mobile-first para planejamento e controle financeiro de compras de supermercado em tempo real.
+
+**Live:** [conta-antes.vercel.app](https://conta-antes.vercel.app)
 
 ## 💡 Sobre o Projeto
 

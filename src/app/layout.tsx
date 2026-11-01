@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://conta-antes.vercel.app"),
   title: "Conta Antes — Lista de compras",
   description:
     "Planeje sua lista de compras e acompanhe o total do carrinho em tempo real, direto do seu celular.",
