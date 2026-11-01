@@ -1,9 +1,11 @@
 import { Card, CardContent } from "@/src/components/ui/card";
 import { Badge } from "@/src/components/ui/badge";
 import { Checkbox } from "@/src/components/ui/checkbox";
-import { ItemProps } from "../types";
+import { Item } from "@/src/types";
 
-export const ProductCard = ({ id, name }: ItemProps) => {
+type ProductCardProps = Pick<Item, "id" | "name">;
+
+export const ProductCard = ({ id, name }: ProductCardProps) => {
   return (
     <Card key={id} className="my-2 py-4 border-zinc-800 bg-zinc-900">
       <CardContent className="flex flex-row itens-center flex-between gap-2 ">

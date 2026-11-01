@@ -3,30 +3,23 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { AddItemInput } from "@/src/components/AddItemInput";
 import { Header } from "@/src/components/Header";
-import { ItemProps } from "@/src/types";
-
-import { ProductCard } from "../components/ProductCard";
+import { ProductCard } from "@/src/components/ProductCard";
+import { useShoppingList } from "@/src/hooks/useShoppingList";
 
 export default function Home() {
   const [item, setItem] = useState<string>("");
-  const [itens, setItens] = useState<ItemProps[]>([]);
-
-  const generateId = () => {
-    return Math.floor(Math.random() * 1000);
-  };
+  const { items, addItem } = useShoppingList();
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    e.preventDefault();
-
-    setItem(e.target.value.trim());
+    setItem(e.target.value);
   };
 
   const handleFormSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!item) return;
+    if (!item.trim()) return;
 
-    setItens([...itens, { id: generateId(), name: item }]);
+    addItem(item);
     setItem("");
   };
 
@@ -39,8 +32,7 @@ export default function Home() {
         handleFormSubmit={handleFormSubmit}
       />
       <div className="p-4">
-        {/* <h2 className="text-zinc-100 text-xl mb-4">Itens</h2> */}
-        {itens.map(({ id, name }) => (
+        {items.map(({ id, name }) => (
           <ProductCard key={id} id={id} name={name} />
         ))}
       </div>
