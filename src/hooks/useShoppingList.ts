@@ -11,6 +11,7 @@ import {
   upsertPriceHistory,
 } from "@/src/lib/storage";
 import { getCartCount, getCartTotalCents, getEstimatedTotalCents } from "@/src/lib/totals";
+import { generateId } from "@/src/lib/utils";
 
 interface ShoppingListState {
   items: Item[];
@@ -73,7 +74,7 @@ export const useShoppingList = () => {
       items: [
         ...current.items,
         {
-          id: crypto.randomUUID(),
+          id: generateId(),
           name: trimmed,
           nameKey,
           category: inferCategory(trimmed),

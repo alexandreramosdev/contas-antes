@@ -57,7 +57,7 @@ export const ProductCard = ({
             variant="outline"
             className={cn(
               "shrink-0 border-zinc-700 tabular-nums",
-              isSuggestedPrice ? "text-zinc-500" : "text-zinc-100",
+              isSuggestedPrice ? "text-zinc-500 opacity-60" : "text-zinc-100",
             )}
           >
             {formatBRL(displayPriceCents)}

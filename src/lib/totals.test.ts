@@ -78,6 +78,21 @@ describe("getEstimatedTotalCents", () => {
     expect(getEstimatedTotalCents(items, history)).toBe(1000);
   });
 
+  it("ignores the registered price of unchecked items without history", () => {
+    const items = [
+      createItem({ checked: false, priceCents: 1000, quantity: 2 }),
+      createItem({
+        id: "item-2",
+        name: "Leite",
+        nameKey: "leite",
+        checked: false,
+        priceCents: 549,
+      }),
+    ];
+
+    expect(getEstimatedTotalCents(items, {})).toBe(0);
+  });
+
   it("ignores items without price or history", () => {
     const items = [
       createItem(),

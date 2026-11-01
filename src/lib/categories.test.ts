@@ -80,6 +80,12 @@ describe("inferCategory", () => {
   it("matches keywords inside longer names", () => {
     expect(inferCategory("papel higiênico folha dupla")).toBe("Higiene e Beleza");
     expect(inferCategory("banana prata")).toBe("Hortifruti");
+    expect(inferCategory("grão de bico")).toBe("Mercearia");
+    expect(inferCategory("grão-de-bico")).toBe("Mercearia");
+  });
+
+  it("breaks equal-length keyword ties by declaration order", () => {
+    expect(inferCategory("pão com sal")).toBe("Padaria");
   });
 
   it("falls back to Outros", () => {

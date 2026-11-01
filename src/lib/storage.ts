@@ -23,7 +23,7 @@ const isValidItem = (value: unknown): value is Item => {
     typeof item.id === "string" &&
     item.id.length > 0 &&
     typeof item.name === "string" &&
-    item.name.length > 0 &&
+    item.name.trim().length > 0 &&
     typeof item.category === "string" &&
     (CATEGORIES as string[]).includes(item.category) &&
     (item.categorySource === "auto" || item.categorySource === "manual") &&

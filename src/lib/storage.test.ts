@@ -105,6 +105,7 @@ describe("loadItems", () => {
       createItem({ id: "bad-category", category: "Sem Categoria" as Item["category"] }),
       createItem({ id: "bad-price", priceCents: -10 }),
       createItem({ id: "bad-checked", checked: "yes" as unknown as boolean }),
+      createItem({ id: "blank-name", name: "   " }),
     ];
 
     storage.setItem(ITEMS_KEY, JSON.stringify([createItem(), ...invalidEntries]));
@@ -166,6 +167,27 @@ describe("loadPriceHistory", () => {
     );
 
     expect(loadPriceHistory()).toEqual({ arroz: { priceCents: 2599, updatedAt: 1 } });
+  });
+
+  it("returns an empty object when the stored value is not a plain object", () => {
+    storage.setItem(
+      PRICE_HISTORY_KEY,
+      JSON.stringify([{ priceCents: 2599, updatedAt: 1 }]),
+    );
+
+    expect(loadPriceHistory()).toEqual({});
+  });
+});
+
+describe("savePriceHistory", () => {
+  it("does not throw when writing fails", () => {
+    vi.spyOn(storage, "setItem").mockImplementation(() => {
+      throw new Error("quota exceeded");
+    });
+
+    expect(() =>
+      savePriceHistory({ arroz: { priceCents: 2599, updatedAt: 1 } }),
+    ).not.toThrow();
   });
 });
 

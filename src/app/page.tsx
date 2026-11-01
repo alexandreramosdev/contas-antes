@@ -106,13 +106,15 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen pb-32 font-sans">
-      <Header estimatedTotalCents={estimatedTotalCents} />
-      <AddItemInput
-        value={item}
-        feedback={feedback}
-        handleInputChange={handleInputChange}
-        handleFormSubmit={handleFormSubmit}
-      />
+      <div className="sticky top-0 z-20">
+        <Header estimatedTotalCents={estimatedTotalCents} />
+        <AddItemInput
+          value={item}
+          feedback={feedback}
+          handleInputChange={handleInputChange}
+          handleFormSubmit={handleFormSubmit}
+        />
+      </div>
       <div className="p-4">
         {items.length === 0 ? (
           <EmptyState variant="empty" />

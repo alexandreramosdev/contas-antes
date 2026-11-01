@@ -144,6 +144,7 @@ const CATEGORY_KEYWORDS: Record<Exclude<Category, "Outros">, string[]> = {
     "ervilha",
     "lentilha",
     "grão-de-bico",
+    "grão de bico",
     "biscoito",
     "bolacha",
     "cereal",
