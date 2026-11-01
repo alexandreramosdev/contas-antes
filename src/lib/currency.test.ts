@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { formatBRL, parsePriceToCents } from "@/src/lib/currency";
+import { formatBRL, formatPriceInput, parsePriceToCents } from "@/src/lib/currency";
 
 const normalizeSpaces = (value: string) => value.replace(/\u00a0/g, " ");
 
@@ -47,5 +47,20 @@ describe("formatBRL", () => {
     expect(normalizeSpaces(formatBRL(0))).toBe("R$ 0,00");
     expect(normalizeSpaces(formatBRL(50))).toBe("R$ 0,50");
     expect(normalizeSpaces(formatBRL(123456))).toBe("R$ 1.234,56");
+  });
+});
+
+describe("formatPriceInput", () => {
+  it("formats cents for the price input", () => {
+    expect(formatPriceInput(1599)).toBe("15,99");
+    expect(formatPriceInput(50)).toBe("0,50");
+    expect(formatPriceInput(0)).toBe("0,00");
+    expect(formatPriceInput(123456)).toBe("1234,56");
+  });
+
+  it("round-trips with parsePriceToCents", () => {
+    [0, 50, 1599, 123456].forEach((cents) => {
+      expect(parsePriceToCents(formatPriceInput(cents))).toBe(cents);
+    });
   });
 });

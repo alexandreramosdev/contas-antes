@@ -5,6 +5,9 @@ const brlFormatter = new Intl.NumberFormat("pt-BR", {
 
 export const formatBRL = (cents: number): string => brlFormatter.format(cents / 100);
 
+export const formatPriceInput = (cents: number): string =>
+  (cents / 100).toFixed(2).replace(".", ",");
+
 export const parsePriceToCents = (input: string): number | null => {
   const cleaned = input.replace(/R\$/gi, "").trim();
 

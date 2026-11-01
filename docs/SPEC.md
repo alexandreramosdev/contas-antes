@@ -327,11 +327,11 @@ const {
 
 ### F1 — Modo Carrinho
 
-- [ ] `ItemSheet` modo carrinho: preço sugerido + stepper (RF-04, RF-09)
-- [ ] Checkbox funcional no `ProductCard` (RF-04, RF-11)
-- [ ] `CartSummaryBar` com total em tempo real (RF-05)
-- [ ] Header com "Planejado" dinâmico (RF-05)
-- [ ] Badge de preço do card com preço real/sugerido (RF-02, RF-09)
+- [x] `ItemSheet` modo carrinho: preço sugerido + stepper (RF-04, RF-09)
+- [x] Checkbox funcional no `ProductCard` (RF-04, RF-11)
+- [x] `CartSummaryBar` com total em tempo real (RF-05)
+- [x] Header com "Planejado" dinâmico (RF-05)
+- [x] Badge de preço do card com preço real/sugerido (RF-02, RF-09)
 
 ### F2 — Lista completa
 
