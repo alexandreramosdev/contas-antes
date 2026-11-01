@@ -6,7 +6,7 @@
 
 > Uma aplicação web mobile-first para planejamento e controle financeiro de compras de supermercado em tempo real.
 
-**Live:** [conta-antes.vercel.app](https://conta-antes.vercel.app)
+**Live:** [contas-antes.vercel.app](https://contas-antes.vercel.app)
 
 ## 💡 Sobre o Projeto
 
