@@ -55,7 +55,7 @@ O projeto segue uma estética **"Dark & Clean"** (inspirada em interfaces modern
 
 ### Pré-requisitos
 
-Certifique-se de ter o [Node.js](https://nodejs.org/) instalado.
+Certifique-se de ter o [Node.js](https://nodejs.org/) instalado (versão LTS 26 ou superior — veja `.nvmrc` / `.tool-versions`).
 
 ### Passo a passo
 
