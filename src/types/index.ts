@@ -33,6 +33,7 @@ export type PriceHistory = Record<string, PriceHistoryEntry>;
 
 export interface AddItemInputProps {
   value: string;
+  feedback: string | null;
   handleInputChange: (e: ChangeEvent<HTMLInputElement>) => void;
   handleFormSubmit: (e: FormEvent<HTMLFormElement>) => void;
 }

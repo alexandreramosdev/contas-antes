@@ -149,7 +149,7 @@ Critérios de aceite:
 - Card mostra: checkbox, nome, badge de categoria e badge de preço.
 - Badge de preço: preço real formatado quando registrado; senão último preço do histórico com opacidade reduzida; senão oculto.
 - Item marcado: nome com `line-through` e cor atenuada.
-- Lista vazia exibe `EmptyState` com dica de uso; quando todos os itens estão marcados, variante "Tudo comprado!".
+- Lista vazia exibe `EmptyState` com dica de uso; quando todos os itens estão marcados, a variante "Tudo comprado!" aparece como faixa acima da lista — a lista continua visível para permitir desmarcar (RF-11).
 
 ### RF-03 — Categorização automática (F2)
 
@@ -335,11 +335,11 @@ const {
 
 ### F2 — Lista completa
 
-- [ ] Categorização automática exibida + override manual (RF-03, RF-06)
-- [ ] `ItemSheet` modo edição: renomear, categoria, remover (RF-06, RF-07)
-- [ ] Nova Compra na barra inferior (RF-10)
-- [ ] `EmptyState` (lista vazia e tudo comprado) (RF-02)
-- [ ] Bloqueio de duplicata pendente com feedback (RF-01, RN-05)
+- [x] Categorização automática exibida + override manual (RF-03, RF-06)
+- [x] `ItemSheet` modo edição: renomear, categoria, remover (RF-06, RF-07)
+- [x] Nova Compra na barra inferior (RF-10)
+- [x] `EmptyState` (lista vazia e tudo comprado) (RF-02)
+- [x] Bloqueio de duplicata pendente com feedback (RF-01, RN-05)
 
 ### F3 — Polimento
 
