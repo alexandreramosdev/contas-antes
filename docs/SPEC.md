@@ -62,7 +62,7 @@ type Category =
   | "Outros";
 
 interface Item {
-  id: string; // crypto.randomUUID()
+  id: string; // generateId() — UUID v4
   name: string; // nome exibido (trim)
   nameKey: string; // nome normalizado (ver abaixo)
   category: Category; // inferida ou escolhida manualmente
@@ -85,7 +85,7 @@ Regras do modelo:
 
 - **Dinheiro:** `priceCents` e o histórico guardam sempre inteiros em centavos. Nunca armazenar float.
 - **`nameKey`:** `name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ")`. É a chave do histórico de preços e da detecção de duplicatas.
-- **`id`:** `crypto.randomUUID()` (contexto seguro). O `Math.random()` atual é proibido.
+- **`id`:** gerado por `generateId()` em `src/lib/utils.ts` — usa `crypto.randomUUID()` quando disponível e cai para um UUID v4 via `crypto.getRandomValues()` em contexto não seguro (ex.: teste pela LAN em HTTP). `Math.random()` é proibido.
 - **`categorySource`:** vira `"manual"` a partir do primeiro override do usuário e nunca é sobrescrita pela inferência automática.
 - **`quantity`:** inteiro entre 1 e 999.
 
@@ -237,12 +237,12 @@ Critérios de aceite:
 ## 8. Requisitos não-funcionais
 
 - **RNF-01 Mobile-first:** alvos de toque ≥ 44×44px; ações primárias na zona do polegar (barra inferior); sem scroll horizontal em 360px.
-- **RNF-02 Design:** fundo zinc-950, cards zinc-900 com borda zinc-800, emerald-500 exclusivo para dinheiro/ações positivas; dark fixo.
+- **RNF-02 Design:** fundo zinc-950, cards zinc-900 com borda zinc-800, emerald-500 reservado a dinheiro/ações positivas (única exceção: o ponto decorativo do título, que é a marca do app); dark fixo.
 - **RNF-03 Acessibilidade:** checkbox com label acessível, sheet com título/descrição (Radix/vaul), foco visível, total e feedbacks com `aria-live`.
 - **RNF-04 Qualidade de código:** TypeScript strict, sem `any`/`@ts-ignore`; `npm run lint`, `npx tsc --noEmit` e `npm run build` limpos.
 - **RNF-05 Performance:** estado local e totais memoizados; nenhuma chamada de rede.
 - **RNF-06 Privacidade:** 100% local; nada sai do dispositivo.
-- **RNF-07 Compatibilidade:** Chrome/Safari/Firefox modernos (mobile e desktop); `crypto.randomUUID()` em contexto seguro.
+- **RNF-07 Compatibilidade:** Chrome/Safari/Firefox modernos (mobile e desktop); IDs via `generateId()` funcionam em contexto seguro (HTTPS/localhost) e não seguro (HTTP na LAN).
 - **RNF-08 Convenções:** identificadores em inglês, texto de UI em pt-BR, sem comentários, exports nomeados, alias `@/src`.
 
 ## 9. Arquitetura alvo
@@ -304,12 +304,12 @@ const {
 
 ## 11. Correções de consistência obrigatórias
 
-- [ ] `src/app/layout.tsx`: `lang="en"` → `"pt-BR"`; `description: "..."` → texto real do app.
-- [ ] `README.md`: Next.js 14 → 16 (conferir `package.json`); documentar scripts de teste; sincronizar funcionalidades/roadmap com a realidade.
-- [ ] `src/components/ProductCard.tsx`: classe inválida `itens-center` → `items-center`; remover `key` redundante no `<Card>`; `flex-between` não existe no Tailwind — ajustar.
-- [ ] `src/app/page.tsx`: remover `generateId` com `Math.random` (substituído por `crypto.randomUUID` via hook).
-- [ ] Remover valores hardcoded: `"R$ 15,99"` (ProductCard) e `"R$ 200,00"` (Header).
-- [ ] `metadata.title`/`metadata.description` definitivos.
+- [x] `src/app/layout.tsx`: `lang="en"` → `"pt-BR"`; `description: "..."` → texto real do app.
+- [x] `README.md`: Next.js 14 → 16 (conferir `package.json`); documentar scripts de teste; sincronizar funcionalidades/roadmap com a realidade.
+- [x] `src/components/ProductCard.tsx`: classe inválida `itens-center` → `items-center`; remover `key` redundante no `<Card>`; `flex-between` não existe no Tailwind — ajustar.
+- [x] `src/app/page.tsx`: remover `generateId` com `Math.random` (substituído por `generateId()` do `lib/utils.ts`, com `crypto.randomUUID` + fallback, via hook).
+- [x] Remover valores hardcoded: `"R$ 15,99"` (ProductCard) e `"R$ 200,00"` (Header).
+- [x] `metadata.title`/`metadata.description` definitivos.
 
 ## 12. Checklist de execução
 
@@ -343,11 +343,11 @@ const {
 
 ### F3 — Polimento
 
-- [ ] Correções de consistência (seção 11)
-- [ ] Acessibilidade: aria-live, labels, foco, touch targets (RNF-01, RNF-03)
-- [ ] Revisão final do `code-reviewer` sem achados críticos/altos abertos
-- [ ] `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` verdes
-- [ ] Teste manual do fluxo completo (seção 2) em viewport ~390px
+- [x] Correções de consistência (seção 11)
+- [x] Acessibilidade: aria-live, labels, foco, touch targets (RNF-01, RNF-03)
+- [x] Revisão final do `code-reviewer` sem achados críticos/altos abertos
+- [x] `npm run lint`, `npx tsc --noEmit`, `npm test`, `npm run build` verdes
+- [x] Teste manual do fluxo completo (seção 2) em viewport ~390px
 
 ## 13. Definition of Done
 

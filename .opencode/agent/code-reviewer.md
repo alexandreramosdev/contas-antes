@@ -21,7 +21,7 @@ Input: the change under review (diff/branch/staged changes) or the area to audit
 Check, in order:
 
 1. Acceptance criteria of the relevant RF(s) — are they all actually met?
-2. Data invariants: integer cents, `nameKey` normalization, versioned localStorage keys, SSR guards, `crypto.randomUUID()`.
+2. Data invariants: integer cents, `nameKey` normalization, versioned localStorage keys, SSR guards, `generateId()` (crypto.randomUUID with a getRandomValues fallback, never Math.random).
 3. Edge cases: empty/duplicate names, invalid prices, quantity bounds (1..999), corrupted storage, uncheck/recheck flows, "Nova Compra" with no checked items, duplicate pending items.
 4. Accessibility: touch targets ≥ 44px, `aria-live` on totals/feedback, sheet title/description, focus handling, checkbox labels.
 5. Design rules: dark zinc palette, `emerald-500` only for money/positive, no hardcoded currency strings, pt-BR UI text.

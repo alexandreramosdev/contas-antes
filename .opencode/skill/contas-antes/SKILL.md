@@ -36,7 +36,7 @@ Next 16 App Router · React 19 · TypeScript strict · Tailwind v4 · shadcn/ui 
 ## Design tokens & UX
 
 - Background `zinc-950`; cards `zinc-900` with `zinc-800` borders.
-- `emerald-500` is reserved for money and positive/completion actions. Never use it for decoration.
+- `emerald-500` is reserved for money and positive/completion actions (sole exception: the decorative dot in the title, the app brand mark). Never otherwise use it for decoration.
 - Dark only — no light theme toggle.
 - Mobile-first: touch targets ≥ 44×44px, primary actions within thumb reach (bottom bar), no horizontal scroll at 360px.
 - UI strings in pt-BR; money always via `formatBRL` from `src/lib/currency.ts`.
@@ -46,7 +46,7 @@ Next 16 App Router · React 19 · TypeScript strict · Tailwind v4 · shadcn/ui 
 - Money: integer **cents** everywhere (`priceCents`, `priceHistory`). Parse/format only through `src/lib/currency.ts`.
 - `nameKey`: `name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim().replace(/\s+/g, " ")` — the price-history key and duplicate-check key.
 - localStorage keys: `conta-antes:v1:items`, `conta-antes:v1:price-history`. Load tolerantly (corrupted JSON → defaults; invalid entries filtered individually). Never touch localStorage during SSR.
-- `item.id`: `crypto.randomUUID()`. `quantity`: integer 1..999.
+- `item.id`: `generateId()` from `src/lib/utils.ts` (crypto.randomUUID when available, UUID v4 via crypto.getRandomValues fallback for non-secure contexts like LAN HTTP). `quantity`: integer 1..999.
 - `categorySource: "auto" | "manual"` — auto-categorization only runs on add/rename when the source is `auto`; a manual override is never overwritten.
 - Totals (RN-11): cart = Σ(priceCents × quantity) of checked items with price; estimate = cart + history price × quantity of unchecked items that have history.
 

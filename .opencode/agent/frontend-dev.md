@@ -16,7 +16,7 @@ Always work from `docs/SPEC.md`:
 
 Rules:
 
-- Honor the data invariants: integer cents, normalized `nameKey`, versioned storage keys, SSR-safe localStorage, `crypto.randomUUID()`. Never bypass `src/lib/currency.ts` for money.
+- Honor the data invariants: integer cents, normalized `nameKey`, versioned storage keys, SSR-safe localStorage, `generateId()` (never `Math.random`). Never bypass `src/lib/currency.ts` for money.
 - UI strings pt-BR; identifiers, filenames and tests in English; no comments; named exports; `cn()` for classes; `emerald-500` only for money/positive actions.
 - Stay within scope: no backend, no E2E, no extra dependencies beyond what the SPEC requires (Vitest in F0), no new UI library.
 - If a requirement is ambiguous or conflicts with the codebase, stop and ask instead of guessing.
